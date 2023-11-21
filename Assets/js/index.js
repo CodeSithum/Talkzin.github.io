@@ -90,7 +90,7 @@ function runUser() {
             });
     };
     init();
-    let socket = io.connect("https://talkzin-9d83363b8c70.herokuapp.com");
+    let socket = io.connect();
     socket.on("connect", () => {
         if (socket.connected) {
             socket.emit("userconnect", {
