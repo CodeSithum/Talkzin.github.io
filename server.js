@@ -13,6 +13,8 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "Talkzin", "Views"));
+
 
 app.use("/css", express.static(path.resolve(__dirname, "Assets/css")));
 app.use("/img", express.static(path.resolve(__dirname, "Assets/img")));
