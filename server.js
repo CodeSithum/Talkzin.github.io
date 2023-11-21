@@ -12,7 +12,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 
 app.use(bodyparser.json());
 
-app.set("view engine", "ejs");
+app.set("Views engine", "ejs");
 
 app.use("/css", express.static(path.resolve(__dirname, "Assets/css")));
 app.use("/img", express.static(path.resolve(__dirname, "Assets/img")));
