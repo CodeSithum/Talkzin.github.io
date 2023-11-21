@@ -1,0 +1,345 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #fff !important;
+}
+
+.hero {
+    background: #eceaff;
+    color: #525252;
+    padding: 10px;
+}
+
+header {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #f5f5f5;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto;
+}
+
+:root {
+    --black: #272d3b;
+    --red: #ed176f;
+    --coral: #f7817f;
+    --gradient: linear-gradient(90deg, var(--red), var(--coral));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.panel {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    padding: 20px;
+    width: 1100px;
+    margin: 0 auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* add a shadow effect */
+}
+
+.panel .content .title {
+    text-align: center;
+    margin-bottom: 1em;
+    margin-top: .5em;
+}
+
+.panel .content p {
+    margin-bottom: 1em;
+}
+
+.panel .content .bold {
+    margin-bottom: 1em;
+    font-weight: 600;
+    text-align: center;
+}
+
+.panel .content .ending {
+    margin-bottom: 1em;
+    font-size: large;
+    text-align: center;
+}
+
+label {
+    display: inline-block;
+    width: 100px;
+    /* optional: set a width for the label */
+}
+
+select {
+    display: inline-block;
+    width: 200px;
+    /* optional: set a width for the dropdown menu */
+}
+
+form .age-gender {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+label {
+    flex: 1;
+    margin-right: .5rem;
+    font-weight: bold;
+}
+
+select {
+    height: auto;
+    flex: 2;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+}
+
+
+button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0062cc;
+}
+
+.textbox {
+    position: relative;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    width: 250px;
+    margin-bottom: 10px;
+    height: 40px;
+    padding-top: 20px;
+}
+
+.textbox:focus {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.textbox-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.interest {
+    display: inline-flex;
+}
+
+.gender {
+    padding-left: 20px;
+}
+
+.age {
+    padding-left: 40px;
+}
+
+#age-group {
+    margin-right: 0.7rem;
+    width: 30px;
+}
+
+#gender {
+    margin-right: 0.9rem;
+}
+
+.btn {
+    padding-left: 10px;
+}
+
+.small-panel {
+    background-color: #929292;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    padding: 20px;
+    width: 750px;
+    margin: 0 auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    /* add a shadow effect */
+}
+
+
+.small-panel form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.small-panel form .age-gender {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.small-panel form .age-gender select {
+    width: 48%;
+}
+
+.small-panel form .interest {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.small-panel form .interest label {
+    margin-bottom: 10px;
+}
+
+.small-panel form .interest .textbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.small-panel form .interest .textbox-container input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+.small-panel form .interest button {
+    padding: 10px 20px;
+    background-color: #007aff;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.small-panel form .interest button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+/*login/sign up page*/
+
+
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+}
+
+.header {
+    background: rgba(76, 68, 182, 0.808);
+    border-radius: 5px;
+}
+
+.login-box {
+    background: #fdfdfd;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+        0 32px 64px -48px rgba(0, 0, 0, 0.5);
+}
+
+.form-box {
+    width: 450px;
+    margin: 0px 10px;
+}
+
+.form-box header {
+    font-size: 25px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 10px;
+}
+
+.form-box form .field {
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+
+}
+
+.form-box form .input input {
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.login-btn {
+    height: 35px;
+    background: rgba(76, 68, 182, 0.808);
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all .3s;
+    margin-top: 10px;
+    padding: 0px 10px;
+}
+
+.login-btn:hover {
+    opacity: 0.82;
+}
+
+.submit {
+    width: 100%;
+}
+
+.links {
+    margin-bottom: 15px;
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text chat - Omegle</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/mainchat.css">
+</head>
+
+<body>
+    <div id="custom-alert" class="custom-alert"></div>
+    <div class="container">
+        <div class="video">
+            <!--header start-->
+            <header>
+                <a href="#" class="logo">Talkwiz</a>
+                <div class="info">
+                    <div>
+                        <h4>Chat With Randoms</h4>
+                        <p id="connected"></p>
+                    </div>
+                    <h5 id="connection-status" style="align-self: center; color: greenyellow; font-size: medium;">
+                        connected</h5>
+                </div>
+            </header>
+            <!--header end-->
+            <!--video box start-->
+            <div class="videoBx">
+                <div class="img">
+                    <video autoplay="true" class="remoteuser" id="user-2"></video>
+                    <div class="imgBx">
+                        <video autoplay="true" class="localuser" id="user-1"></video>
+                    </div>
+                </div>
+            </div>
+            <!--video box end-->
+            <div class="btns">
+                <div id="btncam"><ion-icon name="videocam-outline"></ion-icon></div>
+                <div id="btnmic"><ion-icon name="mic-outline"></ion-icon></div>
+                <div class="next-chat"><ion-icon name="call-outline"></ion-icon></div>
+                <div id="chat"><ion-icon name="chatbubble-ellipses-outline"></ion-icon></div>
+                <div id="btnexit"><ion-icon name="exit-outline"></ion-icon></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="chat">
+        <h4>View Messages</h4>
+        <div class="chat-text-container">
+            <p class="chat-text-area"></p>
+        </div>
+        <div class="send">
+            <div href="#"><ion-icon name="attach-outline"></ion-icon></div>
+            <input type="text" placeholder="Write your message" id="msg-input">
+            <div href="#" class="msg-send-button"><ion-icon name="send-outline"></ion-icon></div>
+        </div>
+    </div>
+
+    <script>
+
+        // select the chat button and chat box elements
+        const chatBtn = document.querySelector('#chat');
+        const chatBox = document.querySelector('.chat');
+
+        // add click event listener to the chat button
+        chatBtn.addEventListener('click', function (event) {
+            event.preventDefault(); // prevent default behavior of the link
+            if (chatBox.style.display === 'flex') {
+                chatBox.style.display = 'none'; // hide the chat box if it's already open
+            } else {
+                chatBox.style.display = 'flex'; // show the chat box if it's closed
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the video elements
+            const localVideo = document.getElementById('user-1');
+            const remoteVideo = document.getElementById('user-2');
+
+            // Get the btncam and btnmic buttons
+            const btncamBtn = document.getElementById('btncam');
+            const btnmicBtn = document.getElementById('btnmic');
+            const btnBack = document.getElementById('btnexit');
+
+            // Boolean variables to track the webcam and microphone status
+            let isWebcamOn = true;
+            let isMicOn = true;
+
+            // Add click event listener to the btncam button
+            btncamBtn.addEventListener('click', function () {
+                if (isWebcamOn) {
+                    // If webcam is on, turn it off
+                    localVideo.srcObject.getTracks().forEach(track => track.stop());
+                    isWebcamOn = false;
+                    showCustomAlert("Your camera is turn off now!", 3000);
+                } else {
+                    // If webcam is off, turn it on
+                    navigator.mediaDevices.getUserMedia({ video: true })
+                        .then(stream => {
+                            localVideo.srcObject = stream;
+                            showCustomAlert("Your camera is turn on now!", 3000);
+                        })
+                        .catch(error => {
+                            console.error('Error accessing webcam:', error);
+                        });
+                    isWebcamOn = true;
+                }
+            });
+
+            // Add click event listener to the btnmic button
+            btnmicBtn.addEventListener('click', function () {
+                if (isMicOn) {
+                    // If mic is on, mute it
+                    localVideo.srcObject.getAudioTracks().forEach(track => track.enabled = false);
+                    isMicOn = false;
+                    showCustomAlert("Your mute now!", 3000);
+
+                } else {
+                    // If mic is off, unmute it
+                    localVideo.srcObject.getAudioTracks().forEach(track => track.enabled = true);
+                    isMicOn = true;
+                    showCustomAlert("Your unmute now!", 3000);
+                }
+            });
+
+            // Add click event listener to the back button
+            btnBack.addEventListener('click', function () {
+                // Go back in the browser history
+                window.history.back();
+            });
+        });
+        // Function to display the custom alert
+        function showCustomAlert(message, timeout) {
+            var customAlert = document.getElementById('custom-alert');
+            customAlert.textContent = message;
+            customAlert.style.display = 'block';
+
+            // Automatically hide the alert after the specified timeout
+            setTimeout(function () {
+                customAlert.style.display = 'none';
+            }, timeout);
+        }
+    </script>
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script src="/js/index.js"></script>
+
+</html>
