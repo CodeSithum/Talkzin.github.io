@@ -14,7 +14,7 @@ var chatTextArea = document.querySelector(".chat-text-area");
 var omeID = localStorage.getItem("omeID");
 if (omeID) {
     $.ajax({
-        url: "https://talkzin-9d83363b8c70.herokuapp.com/new-user-update/" + omeID + "",
+        url: "/new-user-update/" + omeID + "",
         type: "PUT",
         success: function (data) {
             const newOmeID = data.omeID;
@@ -242,7 +242,7 @@ function runUser() {
         });
         document.querySelector(".next-chat").style.pointerEvents = "auto";
         $.ajax({
-            url: "https://talkzin-9d83363b8c70.herokuapp.com/update-on-engagement/" + username + "",
+            url: "/update-on-engagement/" + username + "",
             type: "PUT",
             success: function (response) { },
         });
@@ -256,7 +256,7 @@ function runUser() {
         }
         document.querySelector(".next-chat").style.pointerEvents = "auto";
         $.ajax({
-            url: "https://talkzin-9d83363b8c70.herokuapp.com/update-on-engagement/" + username + "",
+            url: "/update-on-engagement/" + username + "",
             type: "PUT",
             success: function (response) { },
         });
@@ -276,7 +276,7 @@ function runUser() {
         }
         console.log("Closed Remote user");
         $.ajax({
-            url: "https://talkzin-9d83363b8c70.herokuapp.com/update-on-next/" + username + "",
+            url: "/update-on-next/" + username + "",
             type: "PUT",
             success: function (response) {
                 fetchNextUser(remoteUser);
@@ -299,14 +299,14 @@ function runUser() {
         });
         if (navigator.userAgent.indexOf("Chrome") != -1) {
             $.ajax({
-                url: "https://talkzin-9d83363b8c70.herokuapp.com/leaving-user-update/" + username + "",
+                url: "/leaving-user-update/" + username + "",
                 type: "PUT",
                 success: function (response) {
                     console.log(response);
                 },
             });
             $.ajax({
-                url: "https://talkzin-9d83363b8c70.herokuapp.com/update-on-otheruser-closing/" + remoteUser + "",
+                url: "/update-on-otheruser-closing/" + remoteUser + "",
                 type: "PUT",
                 success: function (response) {
                     console.log(response);
@@ -314,7 +314,7 @@ function runUser() {
             });
         } else if (navigator.userAgent.indexOf("Firefox") != -1) {
             $.ajax({
-                url: "https://talkzin-9d83363b8c70.herokuapp.com/leaving-user-update/" + username + "",
+                url: "/leaving-user-update/" + username + "",
                 type: "PUT",
                 async: false,
                 success: function (response) {
@@ -323,7 +323,7 @@ function runUser() {
             });
 
             $.ajax({
-                url: "https://talkzin-9d83363b8c70.herokuapp.com/update-on-otheruser-closing/" + remoteUser + "",
+                url: "/update-on-otheruser-closing/" + remoteUser + "",
                 type: "PUT",
                 async: false,
                 success: function (response) {
@@ -351,7 +351,7 @@ function runUser() {
             remoteUser: remoteUser,
         });
         $.ajax({
-            url: "https://talkzin-9d83363b8c70.herokuapp.com/update-on-next/" + username + "",
+            url: "/update-on-next/" + username + "",
             type: "PUT",
             success: function (response) {
                 fetchNextUser(remoteUser);
