@@ -14,7 +14,7 @@ var chatTextArea = document.querySelector(".chat-text-area");
 var omeID = localStorage.getItem("omeID");
 if (omeID) {
     $.ajax({
-        url: "/new-user-update/" + omeID + "",
+        url: "https://talkzin-9d83363b8c70.herokuapp.com/new-user-update/" + omeID + "",
         type: "PUT",
         success: function (data) {
             const newOmeID = data.omeID;
@@ -204,7 +204,7 @@ function runUser() {
     }
     function fetchNextUser(remoteUser) {
         $.post(
-            "/get-next-user",
+            "https://talkzin-9d83363b8c70.herokuapp.com/get-next-user",
             { omeID: username, remoteUser: remoteUser },
             function (data) {
                 console.log("Next user is: ", data);
