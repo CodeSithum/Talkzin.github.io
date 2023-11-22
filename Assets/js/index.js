@@ -74,7 +74,7 @@ function runUser() {
             audio: true,
         });
         document.getElementById("user-1").srcObject = localStream;
-        $.post("https://talkzin-9d83363b8c70.herokuapp.com/get-remote-users", { omeID: username })
+        $.post("/get-remote-users", { omeID: username })
             .done(function (data) {
                 console.log(data);
                 if (data[0]) {
@@ -90,7 +90,7 @@ function runUser() {
             });
     };
     init();
-    let socket = io.connect("https://talkzin-9d83363b8c70.herokuapp.com/");
+    let socket = io.connect();
     socket.on("connect", () => {
         if (socket.connected) {
             socket.emit("userconnect", {
@@ -204,7 +204,7 @@ function runUser() {
     }
     function fetchNextUser(remoteUser) {
         $.post(
-            "https://talkzin-9d83363b8c70.herokuapp.com/get-next-user",
+            "/get-next-user",
             { omeID: username, remoteUser: remoteUser },
             function (data) {
                 console.log("Next user is: ", data);
